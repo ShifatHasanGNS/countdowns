@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ramadan Countdown 2026</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            body {
+                background: radial-gradient(
+                    ellipse at center,
+                    #064e3b 0%,
+                    #022c22 50%,
+                    #011713 100%
+                );
+            }
+
+            .card-gradient {
+                background: radial-gradient(
+                    ellipse at center,
+                    rgba(6, 78, 59, 0.4) 0%,
+                    rgba(4, 47, 36, 0.5) 50%,
+                    rgba(1, 23, 19, 0.6) 100%
+                );
+                backdrop-filter: blur(20px) saturate(180%);
+                -webkit-backdrop-filter: blur(20px) saturate(180%);
+            }
+
+            #seconds {
+                position: relative;
+                overflow: hidden;
+                display: inline-block;
+            }
+
+            @keyframes slideUp {
+                0% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-100%);
+                    opacity: 0;
+                }
+            }
+
+            @keyframes slideIn {
+                0% {
+                    transform: translateY(100%);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+
+            .slide-up {
+                animation: slideUp 0.3s ease-out forwards;
+            }
+
+            .slide-in {
+                animation: slideIn 0.3s ease-out forwards;
+            }
+        </style>
+    </head>
+    <body
+        class="min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 md:p-8"
+    >
+        <div class="w-full max-w-6xl mx-auto">
+            <!-- Title -->
+            <h1
+                class="text-5xl sm:text-5xl md:text-6xl lg:text-7xl text-center text-amber-50 mb-6 sm:mb-8 tracking-tight leading-tight"
+                style="
+                    font-family: __Inter_f367f3, __Inter_Fallback_f367f3;
+                    font-weight: 700;
+                "
+            >
+                Ramadan Countdown
+            </h1>
+
+            <!-- Main Card with Countdown -->
+            <div
+                class="card-gradient rounded-3xl shadow-2xl p-6 sm:p-10 md:p-14 mb-28 max-w-4xl mx-auto"
+            >
+                <!-- Countdown Display -->
+                <div
+                    class="grid grid-cols-4 gap-1 sm:gap-6 md:gap-8 mb-8 sm:mb-12"
+                >
+                    <!-- Days -->
+                    <div class="text-center flex flex-col">
+                        <p
+                            class="text-emerald-300/80 text-[9px] sm:text-sm md:text-base uppercase tracking-widest mb-1 sm:mb-4"
+                            style="
+                                font-family: &quot;Inter&quot;, sans-serif;
+                                font-weight: 600;
+                                letter-spacing: 0.15em;
+                            "
+                        >
+                            Days
+                        </p>
+                        <p
+                            id="days"
+                            class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-amber-50 leading-none"
+                            style="
+                                font-family: &quot;Inter&quot;, sans-serif;
+                                font-weight: 700;
+                            "
+                        >
+                            29
+                        </p>
+                    </div>
+
+                    <!-- Hours -->
+                    <div class="text-center flex flex-col">
+                        <p
+                            class="text-emerald-300/80 text-[9px] sm:text-sm md:text-base uppercase tracking-widest mb-1 sm:mb-4"
+                            style="
+                                font-family: &quot;Inter&quot;, sans-serif;
+                                font-weight: 600;
+                                letter-spacing: 0.15em;
+                            "
+                        >
+                            Hours
+                        </p>
+                        <p
+                            id="hours"
+                            class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-amber-50 leading-none"
+                            style="
+                                font-family: &quot;Inter&quot;, sans-serif;
+                                font-weight: 700;
+                            "
+                        >
+                            02
+                        </p>
+                    </div>
+
+                    <!-- Minutes -->
+                    <div class="text-center flex flex-col">
+                        <p
+                            class="text-emerald-300/80 text-[9px] sm:text-sm md:text-base uppercase tracking-widest mb-1 sm:mb-4"
+                            style="
+                                font-family: &quot;Inter&quot;, sans-serif;
+                                font-weight: 600;
+                                letter-spacing: 0.15em;
+                            "
+                        >
+                            Minutes
+                        </p>
+                        <p
+                            id="minutes"
+                            class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-amber-50 leading-none"
+                            style="
+                                font-family: &quot;Inter&quot;, sans-serif;
+                                font-weight: 700;
+                            "
+                        >
+                            09
+                        </p>
+                    </div>
+
+                    <!-- Seconds -->
+                    <div class="text-center flex flex-col">
+                        <p
+                            class="text-emerald-300/80 text-[9px] sm:text-sm md:text-base uppercase tracking-widest mb-1 sm:mb-4"
+                            style="
+                                font-family: &quot;Inter&quot;, sans-serif;
+                                font-weight: 600;
+                                letter-spacing: 0.15em;
+                            "
+                        >
+                            Seconds
+                        </p>
+                        <p
+                            id="seconds"
+                            class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-emerald-300/70 leading-none"
+                            style="
+                                font-family: &quot;Inter&quot;, sans-serif;
+                                font-weight: 700;
+                            "
+                        >
+                            36
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Message -->
+                <div
+                    class="text-center border-t border-emerald-800/50 pt-8 sm:pt-10"
+                >
+                    <p
+                        class="text-amber-50/85 text-base sm:text-xl md:text-2xl leading-relaxed"
+                        style="
+                            font-family: &quot;Inter&quot;, sans-serif;
+                            font-weight: 400;
+                        "
+                    >
+                        <span class="text-2xl sm:text-3xl ml-1">✨</span>
+                        in-sha-Allah, Ramadan will be coming on
+                        <span class="text-amber-50" style="font-weight: 600"
+                            >February 18, 2026</span
+                        >
+                        <span class="text-2xl sm:text-3xl ml-1">🌙</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Footer with Social Links -->
+            <div class="text-center">
+                <!-- Social Media Icons -->
+                <div class="flex flex-wrap justify-center gap-4 sm:gap-5">
+                    <a
+                        href="https://www.youtube.com/@shifathasangns/videos"
+                        target="_blank"
+                        class="bg-emerald-900/40 hover:bg-emerald-800 text-emerald-300 hover:text-emerald-100 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center transition-all duration-300 border border-emerald-800/50 hover:border-emerald-700 hover:scale-110"
+                    >
+                        <i class="fab fa-youtube text-xl sm:text-2xl"></i>
+                    </a>
+                    <a
+                        href="https://www.facebook.com/ShifatHasanGNS/"
+                        target="_blank"
+                        class="bg-emerald-900/40 hover:bg-emerald-800 text-emerald-300 hover:text-emerald-100 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center transition-all duration-300 border border-emerald-800/50 hover:border-emerald-700 hover:scale-110"
+                    >
+                        <i class="fab fa-facebook-f text-xl sm:text-2xl"></i>
+                    </a>
+                    <a
+                        href="https://www.instagram.com/shifathasangns"
+                        target="_blank"
+                        class="bg-emerald-900/40 hover:bg-emerald-800 text-emerald-300 hover:text-emerald-100 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center transition-all duration-300 border border-emerald-800/50 hover:border-emerald-700 hover:scale-110"
+                    >
+                        <i class="fab fa-instagram text-xl sm:text-2xl"></i>
+                    </a>
+                    <a
+                        href="https://github.com/ShifatHasanGNS"
+                        target="_blank"
+                        class="bg-emerald-900/40 hover:bg-emerald-800 text-emerald-300 hover:text-emerald-100 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center transition-all duration-300 border border-emerald-800/50 hover:border-emerald-700 hover:scale-110"
+                    >
+                        <i class="fab fa-github text-xl sm:text-2xl"></i>
+                    </a>
+                    <a
+                        href="https://x.com/ShifatHasanGNS"
+                        target="_blank"
+                        class="bg-emerald-900/40 hover:bg-emerald-800 text-emerald-300 hover:text-emerald-100 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center transition-all duration-300 border border-emerald-800/50 hover:border-emerald-700 hover:scale-110"
+                    >
+                        <i class="fab fa-x-twitter text-xl sm:text-2xl"></i>
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/in/md-shifat-hasan-8179402b4/"
+                        target="_blank"
+                        class="bg-emerald-900/40 hover:bg-emerald-800 text-emerald-300 hover:text-emerald-100 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center transition-all duration-300 border border-emerald-800/50 hover:border-emerald-700 hover:scale-110"
+                    >
+                        <i class="fab fa-linkedin-in text-xl sm:text-2xl"></i>
+                    </a>
+                    <a
+                        href="mailto:shifathasangns@gmail.com"
+                        target="_blank"
+                        class="bg-emerald-900/40 hover:bg-emerald-800 text-emerald-300 hover:text-emerald-100 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center transition-all duration-300 border border-emerald-800/50 hover:border-emerald-700 hover:scale-110"
+                    >
+                        <i class="fas fa-envelope text-xl sm:text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Ramadan 2026 starts on February 18, 2026 at sunset
+            // Using midnight as the reference point
+            const ramadanDate = new Date("2026-02-18T00:00:00");
+            let previousSeconds = null;
+
+            function updateCountdown() {
+                const now = new Date();
+                const difference = ramadanDate.getTime() - now.getTime();
+
+                if (difference > 0) {
+                    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor(
+                        (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+                    );
+                    const minutes = Math.floor(
+                        (difference % (1000 * 60 * 60)) / (1000 * 60),
+                    );
+                    const seconds = Math.floor(
+                        (difference % (1000 * 60)) / 1000,
+                    );
+
+                    document.getElementById("days").textContent = String(
+                        days,
+                    ).padStart(2, "0");
+                    document.getElementById("hours").textContent = String(
+                        hours,
+                    ).padStart(2, "0");
+                    document.getElementById("minutes").textContent = String(
+                        minutes,
+                    ).padStart(2, "0");
+
+                    // Animate seconds with card flip effect
+                    const secondsEl = document.getElementById("seconds");
+                    const newSecondsText = String(seconds).padStart(2, "0");
+
+                    if (
+                        previousSeconds !== null &&
+                        previousSeconds !== seconds
+                    ) {
+                        // Create a clone for the old value
+                        const oldValue = secondsEl.cloneNode(true);
+                        oldValue.style.position = "absolute";
+                        oldValue.style.top = "0";
+                        oldValue.style.left = "0";
+                        oldValue.style.right = "0";
+                        oldValue.classList.add("slide-up");
+
+                        // Insert the old value
+                        secondsEl.style.position = "relative";
+                        secondsEl.parentElement.style.position = "relative";
+                        secondsEl.parentElement.appendChild(oldValue);
+
+                        // Update the current value and animate it in
+                        secondsEl.textContent = newSecondsText;
+                        secondsEl.classList.add("slide-in");
+
+                        // Clean up after animation
+                        setTimeout(() => {
+                            if (oldValue.parentElement) {
+                                oldValue.parentElement.removeChild(oldValue);
+                            }
+                            secondsEl.classList.remove("slide-in");
+                        }, 300);
+                    } else {
+                        secondsEl.textContent = newSecondsText;
+                    }
+
+                    previousSeconds = seconds;
+                } else {
+                    document.getElementById("days").textContent = "00";
+                    document.getElementById("hours").textContent = "00";
+                    document.getElementById("minutes").textContent = "00";
+                    document.getElementById("seconds").textContent = "00";
+                }
+            }
+
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        </script>
+    </body>
+</html>
